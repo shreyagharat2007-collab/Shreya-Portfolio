@@ -418,41 +418,83 @@ transition:2s;
 
 /* PROJECTS */
 
+.project-card{
+overflow:hidden;
+background:#fff;
+border-radius:20px;
+
+display:flex;
+flex-direction:column;
+
+height:100%;
+padding-bottom:20px;
+}
+
 .project-img{
 width:100%;
+height:220px;
+object-fit:contain;
 border-radius:18px;
 margin-bottom:18px;
 }
 
-.project-card{
-overflow:hidden;
+.project-card h3{
+margin-bottom:10px;
 }
 
-.project-card:hover{
-transform:translateY(-12px) scale(1.02);
-
-box-shadow:
-0 20px 40px rgba(0,0,0,0.15),
-0 0 30px rgba(168,85,247,0.2);
+.project-card p{
+flex-grow:1;
+line-height:1.7;
+margin-bottom:15px;
 }
 
 .project-tags{
 display:flex;
 flex-wrap:wrap;
 gap:10px;
-margin:15px 0;
+margin-bottom:20px;
 }
 
-.project-tags span{
-padding:6px 14px;
-border-radius:20px;
+.project-buttons{
+margin-top:auto;
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+}
 
-background:#f3e8ff;
+.project span{
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: #f3e8ff;
+    font-size: 12px;
+    font-weight: 600;
+    color: #6a0dad
+}
 
-font-size:12px;
+.current-btn{
+padding:13px 25px;
+
+border:none;
+
+border-radius:30px;
+
+background:#d8b4fe;
+
+color:#4c1d95;
+
 font-weight:600;
 
-color:#6a0dad;
+cursor:pointer;
+
+transition:0.3s;
+}
+
+.current-btn:hover{
+transform:translateY(-5px);
+
+background:#c084fc;
+
+color:white;
 }
 
 /* CONTACT */
@@ -625,6 +667,10 @@ I design and develop modern responsive websites with smooth animations, clean UI
 View Projects
 </a>
 
+<a href="Shreya_Gharat_Resume.html" class="btn btn-primary" target="_blank">
+Download Resume
+</a>
+
 <a href="#contact" class="btn btn-secondary">
 Hire Me
 </a>
@@ -773,14 +819,13 @@ Modern responsive personal branding website with animations.
 <span>JavaScript</span>
 </div>
 
-<a href=" https://shreyagharat2007-collab.github.io/Shreya-Portfolio-/" class="btn btn-primary">
-Live Demo
-</a>
+<div class="project-buttons">
+ <button class="current-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})">Current Website</button>
 
-<a href="https://github.com/shreyagharat2007-collab/Shreya-Portfolio-" class="btn btn-secondary">
-GitHub
-</a>
-
+ <a href="https://github.com/shreyagharat2007-collab" class="btn btn-secondary">
+ GitHub
+ </a>
+</div>
 </div>
 
 <div class="card project-card">
@@ -799,13 +844,15 @@ Advanced task management app with priority system, drag & drop and local storage
 <span>JavaScript</span>
 </div>
 
-<a href="./todo/index.html" target="_blank" class="btn btn-primary">
+<div class="project-buttons">
+<a href="https://shreyagharat2007-collab.github.io/To-Do-List-App/" class="btn btn-primary">
 Live Demo
 </a>
 
-<a href="https://github.com/shreyagharat2007-collab/Shreya-Portfolio-" class="btn btn-secondary">
+<a href="https://github.com/shreyagharat2007-collab/" class="btn btn-secondary">
 GitHub
 </a>
+</div>
 
 </div>
 
@@ -825,14 +872,15 @@ Beautiful shopping interface with clean product layout and responsive design.
 <span>JavaScript</span>
 </div>
 
-<a href="https://shreyagharat2007-collab.github.io/E-Commerce-Website/
-" class="btn btn-primary">
+<div class="project-buttons">
+<a href="https://shreyagharat2007-collab.github.io/E-Commerce-Website/" class="btn btn-primary">
 Live Demo
 </a>
 
-<a href="https://github.com/shreyagharat2007-collab/E-Commerce-Website" class="btn btn-secondary">
+<a href="https://github.com/shreyagharat2007-collab" class="btn btn-secondary">
 GitHub
 </a>
+</div>
 
 </div>
 
@@ -847,18 +895,19 @@ Modern weather app with real-time weather information using API integration.
 </p>
 
 <div class="project-tags">
-<span>HTML</span>
-<span>CSS</span>
-<span>JavaScript</span>
+ <span>HTML</span>
+ <span>CSS</span>
+ <span>JavaScript</span>
 </div>
-
-<a href="./weather/index.html" target="_blank" class="btn btn-primary">
+<div class="project-buttons">
+<a href=" https://shreyagharat2007-collab.github.io/Weather-/" class="btn btn-primary">
 Live Demo
 </a>
 
-<a href="https://github.com/shreyagharat2007-collab/Shreya-Portfolio-" class="btn btn-secondary">
+<a href="https://github.com/shreyagharat2007-collab" class="btn btn-secondary">
 GitHub
 </a>
+</div>
 
 </div>
 
@@ -874,19 +923,34 @@ GitHub
 Contact Me
 </h2>
 
-<form class="card contact-form" onsubmit="sendMessage(event)">
+<form 
+action="https://formsubmit.co/shreyagharat2007@gmail.com" 
+method="POST"
+class="card contact-form">
 
-<input type="text" id="name" placeholder="Your Name">
+<input type="hidden" name="_captcha" value="false">
 
-<input type="email" id="email" placeholder="Your Email">
+<input type="hidden" name="_next" value="https://shreyagharat2007-collab.github.io/">
 
-<textarea id="message" rows="5" placeholder="Your Message"></textarea>
+<input type="text" 
+name="name" 
+placeholder="Your Name" 
+required>
 
-<button class="btn btn-primary">
+<input type="email" 
+name="email" 
+placeholder="Your Email" 
+required>
+
+<textarea 
+name="message" 
+rows="5" 
+placeholder="Your Message"
+required></textarea>
+
+<button type="submit" class="btn btn-primary">
 Send Message
 </button>
-
-<p id="formMsg"></p>
 
 </form>
 
@@ -939,40 +1003,7 @@ el.style.width = el.getAttribute("data") + "%";
 
 });
 
-/* CONTACT FORM */
 
-function sendMessage(event){
-
-event.preventDefault();
-
-let name = document.getElementById("name").value;
-
-let email = document.getElementById("email").value;
-
-let message = document.getElementById("message").value;
-
-let msg = document.getElementById("formMsg");
-
-if(name === "" || email === "" || message === ""){
-
-msg.innerHTML = "❌ Please fill all fields";
-msg.style.color = "red";
-
-return;
-}
-
-if(!email.includes("@")){
-
-msg.innerHTML = "❌ Enter Valid Email";
-msg.style.color = "red";
-
-return;
-}
-
-msg.innerHTML = "✅ Message Sent Successfully!";
-msg.style.color = "green";
-
-}
 
 /* SCROLL REVEAL */
 
